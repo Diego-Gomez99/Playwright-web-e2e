@@ -15,9 +15,9 @@ jobs:
       postgres:
         image: postgres:15
         env:
-          POSTGRES_USER: tu_usuario
-          POSTGRES_PASSWORD: tu_password
-          POSTGRES_DB: tu_base_de_datos
+          POSTGRES_USER: testqaUser
+          POSTGRES_PASSWORD: QAUser
+          POSTGRES_DB: pixel_arcade
         ports:
           - 5432:5432
         options: >-
@@ -38,15 +38,23 @@ jobs:
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
 
+    - name: Instalar cliente de PostgreSQL
+      run: sudo apt-get update && sudo apt-get install -y postgresql-client
+
+    - name: Poblar base de datos con el script de Pixel Arcade
+      run: psql -h localhost -U testqaUser -d pixel_arcade -f setup.sql
+      env:
+        PGPASSWORD: QAUser
+
     - name: Run Playwright tests
       run: npx playwright test
       env:
         # Variables para que Playwright se conecte a la BD del runner
         DB_HOST: localhost
         DB_PORT: 5432
-        DB_USER: tu_usuario
-        DB_PASSWORD: tu_password
-        DB_NAME: tu_base_de_datos
+        DB_USER: testqaUser
+        DB_PASSWORD: QAUser
+        DB_NAME: pixel_arcade
 
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
@@ -54,3 +62,5 @@ jobs:
         name: playwright-report
         path: playwright-report/
         retention-days: 30
+
+    
