@@ -1,5 +1,5 @@
 import { test, expect} from '@playwright/test';
-import { TodoPage } from '../pages/TodoPAge';
+import { TodoPage } from '../pages/TodoPage';
 
 test('Complete workflow using Page Object Model', async ({ page }) => {
     // We instanciate the TodoPage class
