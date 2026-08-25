@@ -9,17 +9,45 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+
+    # 1. Levantar el servicio de PostgreSQL en el Runner
+    services:
+      postgres:
+        image: postgres:15
+        env:
+          POSTGRES_USER: tu_usuario
+          POSTGRES_PASSWORD: tu_password
+          POSTGRES_DB: tu_base_de_datos
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: lts/*
+        node-version: 18
+
     - name: Install dependencies
       run: npm ci
+
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
+
     - name: Run Playwright tests
       run: npx playwright test
+      env:
+        # Variables para que Playwright se conecte a la BD del runner
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_USER: tu_usuario
+        DB_PASSWORD: tu_password
+        DB_NAME: tu_base_de_datos
+
     - uses: actions/upload-artifact@v4
       if: ${{ !cancelled() }}
       with:
