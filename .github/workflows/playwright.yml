@@ -42,7 +42,7 @@ jobs:
       run: sudo apt-get update && sudo apt-get install -y postgresql-client
 
     - name: Poblar base de datos con el script de Pixel Arcade
-      run: psql -h localhost -U testqaUser -d pixel_arcade -f setup.sql
+      run: psql -h localhost -U testqaUser -d pixel_arcade -f .github/workflows/setup.sql
       env:
         PGPASSWORD: QAUser
 
