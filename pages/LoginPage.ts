@@ -28,4 +28,17 @@ export class LoginPage {
         await this.passwordInput.fill(password);
         await this.loginButton.click();
     }
+
+    // Successful login verification
+    async verifyLoginSuccess() {
+        await expect(this.page).toHaveURL('https://www.saucedemo.com/inventory.html');
+        await expect(this.titleSpan).toHaveText('Products');
+    }
+
+    // Unsuccessful login verification
+    async verifyLoginFailure(expectedError: string) {
+        await expect(this.page).toHaveURL('https://www.saucedemo.com/');
+        await expect(this.errorMessage).toBeVisible();
+        await expect(this.errorMessage).toHaveText(expectedError);
+    }
 }
