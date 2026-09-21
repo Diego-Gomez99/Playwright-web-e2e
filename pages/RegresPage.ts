@@ -23,12 +23,7 @@ export class RegresPage {
 
     // Action: Fetch user profile using token
     async getUserProfile(userId: number, token: string){
-        const response = await this.request.get(`${this.baseUrl}/users/${userId}`, {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-            },
-        });
-
+        const response = await this.request.get(`${this.baseUrl}/users/${userId}`);
         expect(response.status()).toBe(200);
         return response.json();
     }
