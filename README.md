@@ -32,7 +32,7 @@ An end-to-end (E2E) automated testing framework built with **Playwright**, **Typ
 
 ### Prerequisites
 
-* **Node.js:** v18 or higher
+* **Node.js:** v24
 * **npm:** v9 or higher
 
 ### Installation
@@ -41,3 +41,41 @@ An end-to-end (E2E) automated testing framework built with **Playwright**, **Typ
    ```bash
    git clone [https://github.com/Diego-Gomez99/Playwright-web-e2e.git](https://github.com/Diego-Gomez99/Playwright-web-e2e.git)
    cd Playwright-web-e2e
+2. Install dependencies:
+   ```bash
+      npm ci
+3. Install Playwright browsers:
+    ```bash
+       npx playwright install --with-deps
+---
+
+## 🧪 Running Tests
+* Run all test (Headless):
+    ```bash
+       npx playwright test
+* Run specific test file:
+    ```bash
+       npx playwright test tests/regres-e2e.spec.ts
+* Run tests in headed mode:
+    ```bash
+       npx playwright test --headed
+* Generate & open HTML execution report:
+    ```bash
+       npx playwright show-report
+
+---
+
+## 🔃 CI/CD Pipeline Workflow
+The repository uses GitHub Actions (`.github/workflows/playwright.yml`) to automatically execute the test suite:
+1. Triggers on `push` and `pull_request` to the `main` or `master` branch.
+2. Sets up a Node.js enviroment and restores cached dependencies.
+3. Installs Playwright browser binaries with system dependencies.
+4. Executes test in parallel across browser projects.
+5. Uploads test execution reports (`playwright-reports`) as workflow artifacts accessible for 30 days.
+
+---
+
+## 🧑‍💻 Author
+## Diego Gomez
+- SR. QA Engineer / SDET
+- GitHub: @Diego-Gomez99
