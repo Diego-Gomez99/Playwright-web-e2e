@@ -1,4 +1,4 @@
-\## Playwright Web \& API E2E Automation Suite 🎭🚀
+\##  Playwright Web \& API E2E Automation Suite 🎭🚀
 
 
 
@@ -12,9 +12,9 @@
 
 
 
-An end-to-end (E2E) automated testing framework built with \*\*Playwright\*\*, \*\*TypeScript\*\*, and \*\*GitHub Actions\*\* for API and Web applications. This repository demostrates
+An end-to-end (E2E) automated testing framework built with \*\*Playwright\*\*, \*\*TypeScript\*\*, and \*\*GitHub Actions\*\* for API and Web applications. This repository demostrates scalable test design using the \*\*Page Object Model (POM)\*\* pattern, dynamic API authenticacion handling, and continuous integration.
 
-scalable test design using the \*\*Page Object Model (POM)\*\* pattern, dynamic API authenticacion handling, and continuous integration.
+
 
 
 
@@ -26,7 +26,7 @@ scalable test design using the \*\*Page Object Model (POM)\*\* pattern, dynamic 
 
 
 
-* \*\*Page Object Model (POM):\*\*\* Clean separation between HTTP request abstractions ('ReqresPage.ts') and test assertions ('reqres-e2e-.spec.ts').
+* \*\*Page Object Model (POM):\*\* Clean separation between HTTP request abstractions ('ReqresPage.ts') and test assertions ('reqres-e2e-.spec.ts').
 * \*\*Dynamic API Chaining:\*\* Automatic token extraction from authentication endpoints ('POST/login') injected seamlessly into protected profile queries.
 * \*\*CI/CD Pipeline:\*\* Fully automated workflow using GitHub Actions running headless test suites across multiple browser engines on every 'push' and 'pull\_request'.
 * \*\*Test Reporting:\*\* Automatic artifact generation with detailed Playwright HTML reports attached to workflow runs.
@@ -76,7 +76,7 @@ scalable test design using the \*\*Page Object Model (POM)\*\* pattern, dynamic 
 
 &#x20;  git clone \[https://github.com/Diego-Gomez99/Playwright-web-e2e.git](https://github.com/Diego-Gomez99/Playwright-web-e2e.git)
 
-&#x20;  cd Playwright-web-e2e
+&#x20;  cd Playwright-web-e2e```
 
 
 
