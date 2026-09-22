@@ -25,3 +25,19 @@ An end-to-end (E2E) automated testing framework built with **Playwright**, **Typ
 * **Target Service:** Reqres REST API (`reqres.in`)
 * **CI/CD Orchestration:** GitHub Actions
 * **Package Manager:** npm
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+* **Node.js:** v18 or higher
+* **npm:** v9 or higher
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone [https://github.com/Diego-Gomez99/Playwright-web-e2e.git](https://github.com/Diego-Gomez99/Playwright-web-e2e.git)
+   cd Playwright-web-e2e
