@@ -5,7 +5,8 @@
 ![Playwright](https://img.shields.io/badge/Playwright-2EAD33?style=flat&logo=playwright&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-2088FF?style=flat&logo=githubactions&logoColor=white)
 
-An end-to-end (E2E) automated testing framework built with **Playwright**, **TypeScript**, and **GitHub Actions** for API and Web applications. This repository demonstrates scalable test design using the **Page Object Model (POM)** pattern, dynamic API authentication handling, and continuous integration.
+An end-to-end (E2E) automated testing framework built with **Playwright**, **TypeScript**, and **GitHub Actions** for API and Web applications. This repository demonstrates scalable test design using the **Page Object Model (POM)** pattern,
+API schema contract validation, network response interception (mocking), and continuos integration.
 
 ---
 
@@ -13,6 +14,8 @@ An end-to-end (E2E) automated testing framework built with **Playwright**, **Typ
 
 * **Page Object Model (POM):** Clean separation between HTTP request abstractions (`ReqresPage.ts`) and test assertions (`regres-e2e.spec.ts`).
 * **Dynamic API Chaining:** Automatic token extraction from authentication endpoints (`POST /login`) injected seamlessly into protected profile queries.
+* **Schema Contract Testing (Zod):** Strict API response payload verification using Zod schemas to ensure backend data integrity and prevent breaking contract changes.
+* **Network Interception & Mocking:** In-browser network routing manipulation (`page.route`) to simulate edge cases and server error states (e.g., HTTP `500 Internal Server Error`) without altering real backend state.
 * **CI/CD Pipeline:** Fully automated workflow using GitHub Actions running headless test suites across multiple browser engines on every `push` and `pull_request`.
 * **Test Reporting:** Automatic artifact generation with detailed Playwright HTML reports attached to workflow runs.
 
@@ -22,6 +25,7 @@ An end-to-end (E2E) automated testing framework built with **Playwright**, **Typ
 
 * **Language:** TypeScript
 * **Test Runner:** Playwright Test Framework
+* **Contract Testing & Schema Validation:** Zod
 * **Target Service:** Reqres REST API (`reqres.in`)
 * **CI/CD Orchestration:** GitHub Actions
 * **Package Manager:** npm
